@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta name="title" content="What Makes a Latent Thought Valid? Defining and Auditing Thought Representations in LLMs">
+  <meta name="description" content="Chain-of-Thought (CoT) reasoning improves the performance of Large Language Models (LLMs), yet it writes steps as text and follows one reasoning path at a time, which limits the capabilities of such models.">
+  <meta name="keywords" content="latent reasoning, chain of thought, thought representations, LLM evaluation, causality, minimality, separability, stability">
+  <meta name="author" content="Fahd Seddik, Fatemeh Fard">
+  <meta name="robots" content="index, follow">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="FARD Lab, University of British Columbia">
+  <meta property="og:title" content="What Makes a Latent Thought Valid? Defining and Auditing Thought Representations in LLMs">
+  <meta property="og:description" content="Chain-of-Thought (CoT) reasoning improves the performance of Large Language Models (LLMs), yet it writes steps as text and follows one reasoning path at a time, which limits the capabilities of such models.">
+  <meta property="og:url" content="https://fard-lab.github.io/valid-thoughts/">
+  <meta property="og:image" content="https://fard-lab.github.io/valid-thoughts/static/images/teaser.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="What Makes a Latent Thought Valid? Defining and Auditing Thought Representations in LLMs">
+  <meta name="twitter:description" content="Chain-of-Thought (CoT) reasoning improves the performance of Large Language Models (LLMs), yet it writes steps as text and follows one reasoning path at a time, which limits the capabilities of such models.">
+  <meta name="twitter:image" content="https://fard-lab.github.io/valid-thoughts/static/images/teaser.png">
+
+  <meta name="citation_title" content="What Makes a Latent Thought Valid? Defining and Auditing Thought Representations in LLMs">
+  <meta name="citation_author" content="Seddik, Fahd">
+  <meta name="citation_author" content="Fard, Fatemeh">
+  <meta name="citation_publication_date" content="2026">
+  <meta name="citation_pdf_url" content="https://fard-lab.github.io/valid-thoughts/static/pdfs/valid-thoughts.pdf">
+
+  <title>What Makes a Latent Thought Valid? Defining and Auditing Thought Representations in LLMs</title>
+
+  <link rel="icon" href="data:,">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script defer src="static/js/index.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {delimiters: [{left: '$', right: '$', display: false}], throwOnError: false});"></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    "headline": "What Makes a Latent Thought Valid? Defining and Auditing Thought Representations in LLMs",
+    "author": [
+      {"@type": "Person", "name": "Fahd Seddik", "affiliation": {"@type": "Organization", "name": "University of British Columbia"}},
+      {"@type": "Person", "name": "Fatemeh Fard", "affiliation": {"@type": "Organization", "name": "University of British Columbia"}}
+    ],
+    "datePublished": "2026",
+    "url": "https://fard-lab.github.io/valid-thoughts/",
+    "abstract": "Chain-of-Thought (CoT) reasoning improves the performance of Large Language Models (LLMs), yet it writes steps as text and follows one reasoning path at a time, which limits the capabilities of such models. Latent reasoning methods replace these steps with continuous thought representations and claim that a thought representation substitutes for the written reasoning, compresses trajectories, distinguishes semantic content, and achieves superposition of multiple exploration paths at once. These claims concern the content of the thought representation, whereas the evaluations of these methods rely on downstream task accuracy, token counts, and analyses specific to each method. We formalize these claims as a valid thought representation space and prove that a space is valid if and only if its thought representations attain four properties, namely causality, minimality, separability, and stability, each of which follows from one claim. Translating these properties into four measures and auditing three training-free and three trained methods shows gaps in these claims that accuracy may not necessarily reveal. Training-free methods fail all four properties and do not encode the reasoning they are meant to replace, whereas trained methods generally improve substitution. The four properties and measures therefore provide a theoretically grounded evaluation beyond downstream task accuracy and expose failure modes that may guide future development of latent reasoning methods.",
+    "isAccessibleForFree": true
+  }
+  </script>
+</head>
+<body>
+
+  <button class="scroll-to-top" onclick="scrollToTop()" title="Scroll to top" aria-label="Scroll to top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <main id="main-content">
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">What Makes a Latent Thought Valid? Defining and Auditing Thought Representations in LLMs</h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><span class="author-name">Fahd Seddik</span><sup>1</sup>,</span>
+              <span class="author-block"><span class="author-name">Fatemeh Fard</span><sup>1</sup></span>
+            </div>
+            <div class="publication-affiliation">
+              <span><sup>1</sup>FARD Lab, University of British Columbia</span>
+              <img class="affiliation-logo" src="static/brand/fard-ubc-navy.png" alt="FARD Lab, University of British Columbia">
+            </div>
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <span class="link-block">
+                  <a href="static/pdfs/valid-thoughts.pdf" target="_blank" rel="noopener" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon"><i class="fas fa-file-pdf"></i></span><span>Paper</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="https://github.com/FARD-Lab/valid-thoughts" target="_blank" rel="noopener" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon"><i class="fab fa-github"></i></span><span>Code</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="https://arxiv.org/abs/2606.27378" target="_blank" rel="noopener" class="external-link button is-normal is-rounded is-dark"><span class="icon"><i class="ai ai-arxiv"></i></span><span>arXiv</span></a>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hero teaser">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+      <figure class="paper-float paper-figure">
+        <img src="static/images/teaser.png" alt="Latent reasoning methods claim that a thought representation substitutes for written reasoning, compresses it, keeps distinct semantic content distinct, and holds several answers together. Each claim corresponds to one property, and no current method attains all four." loading="lazy" style="width: 100%;">
+        <figcaption><strong>Figure 1.</strong> Latent reasoning methods claim that a thought representation substitutes for written reasoning, compresses it, keeps distinct semantic content distinct, and holds several answers together. Each claim corresponds to one property, and no current method attains all four.</figcaption>
+      </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="section hero is-light">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>Chain-of-Thought (CoT) reasoning improves the performance of Large Language Models (LLMs), yet it writes steps as text and follows one reasoning path at a time, which limits the capabilities of such models. Latent reasoning methods replace these steps with continuous thought representations and claim that a thought representation substitutes for the written reasoning, compresses trajectories, distinguishes semantic content, and achieves superposition of multiple exploration paths at once. These claims concern the content of the thought representation, whereas the evaluations of these methods rely on downstream task accuracy, token counts, and analyses specific to each method. We formalize these claims as a valid thought representation space and prove that a space is valid if and only if its thought representations attain four properties, namely causality, minimality, separability, and stability, each of which follows from one claim. Translating these properties into four measures and auditing three training-free and three trained methods shows gaps in these claims that accuracy may not necessarily reveal. Training-free methods fail all four properties and do not encode the reasoning they are meant to replace, whereas trained methods generally improve substitution. The four properties and measures therefore provide a theoretically grounded evaluation beyond downstream task accuracy and expose failure modes that may guide future development of latent reasoning methods.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section hero paper-section">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 has-text-centered">Results</h2>
+      <figure class="paper-float paper-figure">
+        <img src="static/images/properties_figure.png" alt="Performance. Top, no training at best step, averaged over models. Bottom, trained methods." loading="lazy" style="width: 100%;">
+        <figcaption><strong>Figure 5.</strong> <strong>Performance.</strong> Top, no training at best step, averaged over models. Bottom, trained methods.</figcaption>
+      </figure>
+    </div>
+  </section>
+  <section class="section hero paper-section is-light">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 has-text-centered">Implications for Method Design</h2>
+      <figure class="paper-float paper-figure">
+        <img src="static/images/design_choices.png" alt="Design choices. Each arrow runs from the gain of one variant to that of the other." loading="lazy" style="width: 100%;">
+        <figcaption><strong>Figure 6.</strong> <strong>Design choices.</strong> Each arrow runs from the gain of one variant to that of the other.</figcaption>
+      </figure>
+      <figure class="paper-float paper-figure">
+        <img src="static/images/measures_accuracy.png" alt="Measures and accuracy. Accuracy of each trained method on GSM8K test questions ranked by a property of their thought representation, with minimality ranked by its output information $r_Y$. CODI and SIM-CoT are averaged over Llama-3.2-1B-Instruct and GPT-2, and the band spans the two models." loading="lazy" style="width: 100%;">
+        <figcaption><strong>Figure 7.</strong> <strong>Measures and accuracy.</strong> Accuracy of each trained method on GSM8K test questions ranked by a property of their thought representation, with minimality ranked by its output information $r_Y$. CODI and SIM-CoT are averaged over Llama-3.2-1B-Instruct and GPT-2, and the band spans the two models.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <div class="bibtex-header">
+        <h2 class="title">BibTeX</h2>
+        <button class="copy-bibtex-btn" onclick="copyBibTeX()" title="Copy BibTeX to clipboard">
+          <i class="fas fa-copy"></i>
+          <span class="copy-text">Copy</span>
+        </button>
+      </div>
+      <pre id="bibtex-code"><code>@misc{seddik2026makeslatentthoughtvalid,
+  title         = {What Makes a Latent Thought Valid? Defining and Auditing Thought Representations in LLMs},
+  author        = {Fahd Seddik and Fatemeh Fard},
+  year          = {2026},
+  eprint        = {2606.27378},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CL},
+  url           = {https://arxiv.org/abs/2606.27378}
+}</code></pre>
+    </div>
+  </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank" rel="noopener">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank" rel="noopener">Nerfies</a> project page.
+              This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
