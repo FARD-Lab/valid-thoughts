@@ -1,0 +1,18 @@
+defaults:
+  - logging: default
+  - _self_
+
+experiment_name: disc_index
+run_name: disc_index_splits
+
+seed: 42
+
+output_dir: ./outputs/disc_index_tasktype
+
+num_return_sequences: 8
+total_rows: 36160
+llm_data_output_dir: ./outputs/llm_data_llama_8b
+
+train_ratio: 0.8
+val_ratio: 0.1
+test_ratio: 0.1

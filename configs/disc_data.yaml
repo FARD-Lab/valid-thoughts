@@ -1,0 +1,16 @@
+defaults:
+  - model: llama_8b
+  - logging: default
+  - embedder: nemotron_8b
+  - _self_
+
+num_return_sequences: 8
+shard_size: 1024
+think_steps: 128
+seed: 42
+
+tr_types: null
+
+llm_data_output_dir: "./outputs/llm_data_llama_8b/"
+disc_index_output_dir: "./outputs/disc_index_tasktype/"
+output_dir: "./outputs/disc_data_llama_8b/"

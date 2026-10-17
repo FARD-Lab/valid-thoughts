@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+
+# Environment variables
+.env
+
+# Data and results
+data/
+outputs/
+logs/
+*.log
+*.jsonl
+*.parquet
+*.pt
+*.pth
+*.bin
+*.safetensors
+
+# Hydra
+.hydra/
+multirun/

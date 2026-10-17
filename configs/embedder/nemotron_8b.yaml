@@ -1,0 +1,9 @@
+# @package embedder
+
+name: nvidia/llama-embed-nemotron-8b
+model_class: EMBEDDER
+model_type: LLAMA
+device: cuda
+torch_dtype: auto
+trust_remote_code: true
+max_memory: null

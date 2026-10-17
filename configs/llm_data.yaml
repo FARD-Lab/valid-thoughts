@@ -1,0 +1,16 @@
+defaults:
+  - model: llama_8b
+  - loader: bbeh
+  - logging: default
+  - _self_
+
+experiment_name: llm_data_curation
+run_name: llm_data_curation
+
+seed: 42
+
+output_dir: ./outputs/llm_data_llama_8b
+max_input_length: 8192
+batch_size: 1
+save_format: jsonl
+shard_size: 1024

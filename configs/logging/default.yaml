@@ -1,0 +1,9 @@
+# @package logging
+
+name: hidden_thoughts
+log_level: 20
+log_dir: ./logs
+log_to_file: false
+log_to_console: true
+use_rich: true
+log_format: null

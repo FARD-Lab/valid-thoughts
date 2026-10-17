@@ -1,0 +1,8 @@
+# @package loader
+
+_target_: src.dataset.bbeh_loader.BBEHLoader
+data_dir: ./data/bbeh/benchmark_tasks
+task_name: bbeh_boardgame_qa
+num_examples: null
+example_start_idx: null
+example_end_idx: null

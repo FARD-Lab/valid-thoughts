@@ -1,0 +1,3 @@
+[submodule "third_party/colar"]
+	path = third_party/colar
+	url = https://github.com/xiaomi-research/colar
